@@ -114,12 +114,12 @@ export function HeaderClient({ data }: HeaderClientProps) {
 
   return (
     <AnimatePresence>
-      <NavItemsBrowser />
+      <NavItemsBrowser data={data} />
     </AnimatePresence>
   )
 }
 
-const NavItemsBrowser = () => {
+const NavItemsBrowser = ({ data }: HeaderClientProps) => {
   return (
     <div
       key="navbar"
@@ -132,6 +132,15 @@ const NavItemsBrowser = () => {
               <NavigationMenuLink className="px-4 py-2 text-xs uppercase">Home</NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
+
+          {data.navItems?.map((navItem, i) => (
+            <NavigationMenuItem key={i}>
+              <NavigationMenuLink href={navItem.link.url!} className="px-4 py-2 text-xs uppercase">
+                {navItem.link.label}
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          ))}
+
           <NavigationMenuItem tabIndex={2}>
             <NavigationMenuTrigger className="text-xs uppercase !bg-transparent">
               About
