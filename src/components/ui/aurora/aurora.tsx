@@ -2,7 +2,7 @@ import { cn } from '@/utilities/cn'
 
 export const Aurora = () => {
   return (
-    <div className="absolute -z-10 inset-0 overflow-hidden">
+    <div className="absolute -z-10 inset-0 overflow-hidden rotate-180">
       <div
         className={cn(
           `

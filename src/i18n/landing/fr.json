@@ -1,3 +1,7 @@
 {
-  "catchPhrase": "Développeur web full-stack"
+  "catchPhrases": {
+    "0": "Ingénieur Logiciel",
+    "1": "Développeur Full Stack",
+    "2": "Passionné de Technologie"
+  }
 }
