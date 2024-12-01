@@ -2,6 +2,11 @@
   "catchPhrases": {
     "0": "Software Engineer",
     "1": "Full Stack Developer",
-    "2": "Technology Enthusiast"
+    "2": "Software Architect",
+    "3": "Technology Enthusiast"
+  },
+  "hero": {
+    "title": "Ludovic Debever",
+    "subtitle": "I build software, love technology and never stop learning."
   }
 }

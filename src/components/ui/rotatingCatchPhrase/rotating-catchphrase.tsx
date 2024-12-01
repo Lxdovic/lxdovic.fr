@@ -11,9 +11,5 @@ export const RotatingCatchPhrase = () => {
     [t],
   )
 
-  return (
-    <div className="w-1/2 h-full">
-      <MorphingText className="text-left w-full" texts={catchPhrases} />
-    </div>
-  )
+  return <MorphingText className="text-left w-full text-5xl lg:text-8xl" texts={catchPhrases} />
 }
