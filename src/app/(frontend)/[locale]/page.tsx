@@ -1,20 +1,42 @@
 import { getTranslations } from 'next-intl/server'
 import { generateMetadata } from './[slug]/page'
 import { Aurora } from '@/components/ui/aurora/aurora'
-import { RotatingCatchPhrase } from '@/components/ui/rotatingCatchPhrase/rotating-catchphrase'
+import BlurIn from '@/components/ui/blur-in'
+import React from 'react'
+import { HeroRoles } from '@/components/ui/heroRoles/hero-roles'
+import { VerticalGradientBorder } from '@/components/ui/border/vertical-gradient'
+import { HorizontalGradientBorder } from '@/components/ui/border/horizontal-gradient'
 
 export default async function LandingPage() {
   const t = await getTranslations()
 
   return (
-    <div className="container h-screen flex flex-col gap-10 py-40">
-      <Aurora />
-      <RotatingCatchPhrase />
-      <div className="w-1/2 flex flex-col gap-6 text-foreground/60">
-        <h1 className="text-4xl font-semibold">{t('hero.title')}</h1>
-        <p className="text-lg">{t('hero.subtitle')}</p>
-      </div>
-    </div>
+    <main className="flex flex-col">
+      <section className="relative h-[calc(100vh+10rem)] border-b">
+        <Aurora />
+
+        <div className="relative container h-full px-0">
+          <VerticalGradientBorder className="left-0" />
+          <VerticalGradientBorder className="right-0" />
+          <div className="relative flex justify-center flex-col w-80 h-full">
+            <div className="relative h-64 flex flex-col gap-6 border-b border-foreground/20">
+              <BlurIn
+                word={t('hero.title')}
+                className="!text-8xl text-left font-bold w-96 text-black dark:text-white"
+              />
+            </div>
+
+            <HeroRoles />
+
+            <VerticalGradientBorder className="right-0" />
+          </div>
+        </div>
+      </section>
+
+      <section className="relative h-[calc(100vh+10rem)]">
+        <div className="container flex flex-col gap-10 py-40"></div>
+      </section>
+    </main>
   )
 }
 
