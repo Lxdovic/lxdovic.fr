@@ -41,14 +41,18 @@ export default async function RootLayout({ children, params }: Args) {
   const messages = await getMessages()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(GeistSans.variable, GeistMono.variable, 'no-scrollbar')}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.png" rel="icon" sizes="32x32" />
         <link href="/favicon.png" rel="icon" type="image/svg+xml" />
         <title>Lxdovic</title>
       </head>
-      <body>
+      <body className="no-scrollbar">
         <Providers>
           <NextIntlClientProvider messages={messages}>
             <AdminBar

@@ -1,82 +1,20 @@
-// 'use client'
-// import Link from 'next/link'
-// import { useParams } from 'next/navigation'
-// import React, {useTransition } from 'react'
-//
-// import type { Header } from '@/payload-types'
-//
-// import { Logo } from '@/components/Logo/Logo'
-// import { HeaderNav } from './Nav'
-// import localization from '@/i18n/localization'
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from '@/components/ui/select'
-// import { useLocale } from 'next-intl'
-//
-// import { usePathname, useRouter } from '@/i18n/routing'
-// import { TypedLocale } from 'payload'
-//
-// interface HeaderClientProps {
-//   data: Header
-// }
-//
-// export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
-//   /* Storing the value in a useState to avoid hydration errors */
-//   const locale = useLocale()
-//   const router = useRouter()
-//   const [, startTransition] = useTransition()
-//   const pathname = usePathname()
-//   const params = useParams()
-//
-//   function onSelectChange(value: TypedLocale) {
-//     startTransition(() => {
-//       router.replace(
-//         // @ts-expect-error -- TypeScript will validate that only known `params`
-//         // are used in combination with a given `pathname`. Since the two will
-//         // always match for the current route, we can skip runtime checks.
-//         { pathname, params },
-//         { locale: value },
-//       )
-//     })
-//   }
-//
-//   return (
-//     <header className="z-20 container m-auto bg-gray-200/25 backdrop-blur-xl rounded-full sticky top-4 ring-1 ring-background/30">
-//       <div className="px-8 py-4 flex gap-6">
-//         <Link href="/">
-//           <Logo loading="eager" priority="high" />
-//         </Link>
-//         <Select onValueChange={onSelectChange} value={locale}>
-//           <SelectTrigger className="ml-auto w-auto bg-transparent text-sm gap-2 pl-0 md:pl-3 border-none">
-//             <SelectValue placeholder="Locale" />
-//           </SelectTrigger>
-//           <SelectContent>
-//             {localization.locales
-//               .sort((a, b) => a.label.localeCompare(b.label))
-//               .map((locale) => (
-//                 <SelectItem value={locale.code} key={locale.code}>
-//                   {locale.label}
-//                 </SelectItem>
-//               ))}
-//           </SelectContent>
-//         </Select>
-//         <HeaderNav data={data} />
-//       </div>
-//     </header>
-//   )
-// }
-
 'use client'
 
-import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useParams } from 'next/navigation'
+import { useTransition } from 'react'
+import localization from '@/i18n/localization'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { useLocale } from 'next-intl'
+import { usePathname, useRouter } from '@/i18n/routing'
+import { TypedLocale } from 'payload'
 import Link from 'next/link'
 import Image from 'next/image'
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -86,7 +24,6 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
 import { AnimatePresence } from 'framer-motion'
-import { isMobile } from 'react-device-detect'
 import { Button } from '@/components/ui/button'
 import { Icon } from '@iconify/react'
 import { Header } from '@/payload-types'
@@ -96,21 +33,6 @@ interface HeaderClientProps {
 }
 
 export function HeaderClient({ data }: HeaderClientProps) {
-  const [isHydrated, setIsHydrated] = useState(false)
-  const hasWarningBeenDisplayed = React.useRef(false)
-
-  useEffect(() => {
-    if (isHydrated && !isMobile && !hasWarningBeenDisplayed.current) {
-      hasWarningBeenDisplayed.current = true
-    }
-  }, [isHydrated])
-
-  useEffect(() => {
-    setIsHydrated(true)
-  }, [])
-
-  if (!isHydrated) return null
-
   return (
     <AnimatePresence>
       <NavItemsBrowser data={data} />
@@ -119,10 +41,28 @@ export function HeaderClient({ data }: HeaderClientProps) {
 }
 
 const NavItemsBrowser = ({ data }: HeaderClientProps) => {
+  const locale = useLocale()
+  const router = useRouter()
+  const [, startTransition] = useTransition()
+  const pathname = usePathname()
+  const params = useParams()
+
+  function onSelectChange(value: TypedLocale) {
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        // are used in combination with a given `pathname`. Since the two will
+        // always match for the current route, we can skip runtime checks.
+        { pathname, params },
+        { locale: value },
+      )
+    })
+  }
+
   return (
     <div
       key="navbar"
-      className="left-1/2 -translate-x-1/2 fixed top-0 z-50 m-4 flex h-12 w-64 justify-center self-center rounded-full px-4 before:absolute before:h-full before:w-64 before:rounded-full before:border before:border-white/10 before:bg-gray-700/35 before:backdrop-blur-md before:content-['']"
+      className="left-1/2 -translate-x-1/2 fixed top-0 z-50 m-4 flex w-max justify-center self-center rounded-full px-4 h-max border border-white/10 bg-gray-700/35 backdrop-blur-md content-['']"
     >
       <NavigationMenu>
         <NavigationMenuList>
@@ -140,11 +80,35 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
             </NavigationMenuItem>
           ))}
 
+          <NavigationMenuItem>
+            <Select onValueChange={onSelectChange} value={locale}>
+              <SelectTrigger className="ml-auto w-auto bg-transparent text-sm gap-2 pl-0 md:pl-3 border-none">
+                <SelectValue placeholder="Locale" />
+              </SelectTrigger>
+              <SelectContent>
+                {localization.locales
+                  .sort((a, b) => a.label.localeCompare(b.label))
+                  .map((locale) => (
+                    <SelectItem value={locale.code} key={locale.code}>
+                      {locale.label}
+                    </SelectItem>
+                  ))}
+              </SelectContent>
+            </Select>
+          </NavigationMenuItem>
+
           <NavigationMenuItem tabIndex={2}>
-            <NavigationMenuTrigger className="text-xs uppercase !bg-transparent">
+            <NavigationMenuTrigger
+              onPointerMove={(e) => e.preventDefault()}
+              onPointerLeave={(e) => e.preventDefault()}
+              className="text-xs uppercase !bg-transparent"
+            >
               About
             </NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuContent
+              onPointerEnter={(e) => e.preventDefault()}
+              onPointerLeave={(e) => e.preventDefault()}
+            >
               <ul className="flex flex-col gap-3 p-6 md:w-[400px] md:flex-row lg:w-[500px]">
                 <li className="w-64">
                   <NavigationMenuLink asChild>
