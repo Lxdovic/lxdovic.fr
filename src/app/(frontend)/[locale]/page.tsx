@@ -5,6 +5,7 @@ import BlurIn from '@/components/ui/blur-in'
 import React from 'react'
 import { HeroRoles } from '@/components/ui/heroRoles/hero-roles'
 import { VerticalGradientBorder } from '@/components/ui/border/vertical-gradient'
+import { Scene } from '@/components/ui/scene/scene'
 
 export default async function LandingPage() {
   const t = await getTranslations()
@@ -12,6 +13,7 @@ export default async function LandingPage() {
   return (
     <main className="flex flex-col">
       <Aurora />
+      <Scene />
       <section className="relative h-[calc(100vh+10rem)] border-b">
         <div className="relative container h-full px-0">
           <VerticalGradientBorder className="left-0" />
