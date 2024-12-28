@@ -2,7 +2,7 @@ import { cn } from '@/utilities/cn'
 
 export const Aurora = () => {
   return (
-    <div className="absolute h-[calc(100vh+10rem)] -z-10 inset-0 overflow-hidden">
+    <div className="fixed top-0 h-[calc(100vh+10rem)] -z-10 inset-0 overflow-hidden [mask-image:url(/noise.svg)]">
       <div
         className={cn(
           `
