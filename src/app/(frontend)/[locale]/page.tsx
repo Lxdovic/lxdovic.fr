@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { generateMetadata } from './[slug]/page'
 import { Aurora } from '@/components/ui/aurora/aurora'
 import BlurIn from '@/components/ui/blur-in'
-import React from 'react'
+import React, { lazy } from 'react'
 import { HeroRoles } from '@/components/ui/heroRoles/hero-roles'
 import { VerticalGradientBorder } from '@/components/ui/border/vertical-gradient'
 import { SlideUp } from '@/components/ui/slideUp/side-up'
@@ -14,8 +14,9 @@ import configPromise from '@payload-config'
 import { getPayload, TypedLocale } from 'payload'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { Button } from '@/components/ui/button'
-import { KnightScene } from '@/components/ui/scenes/knight-scene'
-import { PawnScene } from '@/components/ui/scenes/pawn-scene'
+
+const KnightScene = lazy(() => import('@/components/ui/scenes/knight-scene'))
+const PawnScene = lazy(() => import('@/components/ui/scenes/pawn-scene'))
 
 type Args = {
   params: Promise<{

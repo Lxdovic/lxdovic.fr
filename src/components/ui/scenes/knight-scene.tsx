@@ -5,7 +5,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'
 
-export const KnightScene = () => {
+export default function KnightScene() {
   return (
     <Canvas camera={{ position: [-0.3, 0.3, -0.3] }}>
       <Knight />

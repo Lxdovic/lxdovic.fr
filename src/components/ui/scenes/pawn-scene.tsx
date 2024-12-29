@@ -5,7 +5,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'
 
-export const PawnScene = () => {
+export default function PawnScene() {
   return (
     <Canvas camera={{ position: [-0.3, 0.3, -0.3] }}>
       <Pawn />
