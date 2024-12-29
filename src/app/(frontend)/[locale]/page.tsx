@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button'
 
 const KnightScene = lazy(() => import('@/components/ui/scenes/knight-scene'))
 const PawnScene = lazy(() => import('@/components/ui/scenes/pawn-scene'))
+const KingScene = lazy(() => import('@/components/ui/scenes/king-scene'))
 
 type Args = {
   params: Promise<{
@@ -128,12 +129,16 @@ export default async function LandingPage({ params }: Args) {
       </section>
 
       <section className="relative min-h-screen h-max">
-        <div className="container flex flex-col gap-10 py-40">
+        <div className="relative container flex flex-col gap-10 py-40">
+          <div className="w-96 absolute top-0 left-0 aspect-square">
+            <KingScene />
+          </div>
           <div className="ml-96 flex flex-col gap-10">
             <h2 className="text-6xl font-bold">{t('blog.title')}</h2>
 
             <p className="text-xl text-foreground/80">{t('blog.content')}</p>
           </div>
+
           <div className="flex gap-10 z-10">
             <CollectionArchive posts={lastPosts.docs} />
           </div>
