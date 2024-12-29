@@ -72,6 +72,12 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
             </Link>
           </NavigationMenuItem>
 
+          <NavigationMenuItem>
+            <Link tabIndex={2} href="/posts" legacyBehavior passHref>
+              <NavigationMenuLink className="px-4 py-2 text-xs uppercase">Blog</NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+
           {data.navItems?.map((navItem, i) => (
             <NavigationMenuItem key={i}>
               <NavigationMenuLink href={navItem.link.url!} className="px-4 py-2 text-xs uppercase">
