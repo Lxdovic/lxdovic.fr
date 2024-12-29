@@ -6,20 +6,18 @@ import { ImageMedia } from './ImageMedia'
 import { VideoMedia } from './VideoMedia'
 
 export const Media: React.FC<Props> = (props) => {
-  const { className, htmlElement = 'div', resource } = props
+  const { className, htmlElement, resource } = props
 
   const isVideo = typeof resource === 'object' && resource?.mimeType?.includes('video')
-  const Tag = (htmlElement) || Fragment
+  const Tag = htmlElement || 'div'
 
-  return (
-    <Tag
-      {...(htmlElement !== null
-        ? {
-            className,
-          }
-        : {})}
-    >
-      {isVideo ? <VideoMedia {...props} /> : <ImageMedia {...props} />}
-    </Tag>
+  return htmlElement ? (
+    React.createElement(
+      Tag,
+      { className },
+      isVideo ? <VideoMedia {...props} /> : <ImageMedia {...props} />,
+    )
+  ) : (
+    <>{isVideo ? <VideoMedia {...props} /> : <ImageMedia {...props} />}</>
   )
 }
