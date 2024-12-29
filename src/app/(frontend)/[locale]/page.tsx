@@ -10,17 +10,44 @@ import Link from 'next/link'
 import { SquareArrowOutUpRight } from 'lucide-react'
 import { HorizontalGradientBorder } from '@/components/ui/border/horizontal-gradient'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { KnightScene } from '@/components/ui/scenes/knight-scene'
-import { PawnScene } from '@/components/ui/scenes/pawn-scene'
+import { KnightWrapper } from '@/components/ui/scenes/knight-wrapper'
+import { PawnWrapper } from '@/components/ui/scenes/pawn-wrapper'
+import configPromise from '@payload-config'
+import { getPayload, TypedLocale } from 'payload'
+import { CollectionArchive } from '@/components/CollectionArchive'
+import { Button } from '@/components/ui/button'
 
-export default async function LandingPage() {
+type Args = {
+  params: Promise<{
+    locale: TypedLocale
+  }>
+}
+
+export default async function LandingPage({ params }: Args) {
   const t = await getTranslations()
+
+  const { locale = 'en' } = await params
+  const payload = await getPayload({ config: configPromise })
+
+  const lastPosts = await payload.find({
+    collection: 'posts',
+    locale,
+    depth: 1,
+    limit: 3,
+    overrideAccess: false,
+    select: {
+      title: true,
+      slug: true,
+      categories: true,
+      meta: true,
+    },
+  })
 
   return (
     <main className="flex flex-col overflow-x-hidden">
       <Aurora />
       <div className="absolute top-0 h-screen w-4/5 right-0">
-        <KnightScene />
+        <KnightWrapper />
       </div>
       <section className="relative h-screen">
         <div className="relative container flex h-full px-0">
@@ -64,11 +91,11 @@ export default async function LandingPage() {
       <section className="relative h-screen bg-background/50 border-y border-foreground/20">
         <div className="container flex pt-40 px-0 h-full">
           <div className="w-96 flex flex-col flex-shrink-0">
-            <h2 className="px-10 text-2xl mb-10">Experiences</h2>
+            <h2 className="px-10 text-4xl mb-10">{t('about.experiences.title')}</h2>
 
             <Card className="rounded-none w-full border-x-0 bg-transparent border-foreground/20">
               <CardHeader>
-                <CardTitle>{t('about.experiences.0.title')}</CardTitle>
+                <CardTitle className="font-normal">{t('about.experiences.0.title')}</CardTitle>
                 <CardDescription>{t('about.experiences.0.content')}</CardDescription>
               </CardHeader>
               <CardContent>{t('about.experiences.0.date')}</CardContent>
@@ -76,7 +103,7 @@ export default async function LandingPage() {
 
             <Card className="rounded-none w-full border-x-0 border-t-0 bg-transparent border-foreground/20">
               <CardHeader>
-                <CardTitle>{t('about.experiences.1.title')}</CardTitle>
+                <CardTitle className="font-normal">{t('about.experiences.1.title')}</CardTitle>
                 <CardDescription>{t('about.experiences.1.content')}</CardDescription>
               </CardHeader>
               <CardContent>{t('about.experiences.1.date')}</CardContent>
@@ -93,15 +120,28 @@ export default async function LandingPage() {
             </div>
 
             <div className="w-full h-full ">
-              <PawnScene />
+              <PawnWrapper />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative h-screen">
+      <section className="relative min-h-screen h-max">
         <div className="container flex flex-col gap-10 py-40">
-          <h2 className="text-6xl text-right font-bold">Blog</h2>
+          <div className="ml-96 flex flex-col gap-10">
+            <h2 className="text-6xl font-bold">{t('blog.title')}</h2>
+
+            <p className="text-xl text-foreground/80">{t('blog.content')}</p>
+          </div>
+          <div className="flex gap-10 z-10">
+            <CollectionArchive posts={lastPosts.docs} />
+          </div>
+
+          <Link href="/posts">
+            <Button variant="outline" className="rounded-none">
+              <p>{t('blog.more')}</p>
+            </Button>
+          </Link>
         </div>
       </section>
     </main>

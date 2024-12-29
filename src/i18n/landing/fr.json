@@ -24,6 +24,11 @@
         "date": "2022 - 2025"
       }
     },
-    "content": "Je suis un ingénieur logiciel passionné par la construction de systèmes existants à partir de zéro, et je suis également un passionné de programmation d'échecs. J'adore simplement créer des programmes d'échecs de toutes sortes, des interfaces graphiques simples aux moteurs complexes.\n\n J'ai commencé à programmer par curiosité et je le fais depuis 5 ans maintenant. Je suis toujours à la recherche de nouveaux défis et j'ai hâte d'apprendre de nouvelles technologies."
+    "content": "Je suis un ingénieur logiciel passionné par la construction de systèmes existants à partir de zéro, et je suis également un passionné de programmation d'échecs. J'adore simplement créer des programmes d'échecs de toutes sortes, des interfaces graphiques simples aux moteurs complexes. J'ai commencé à programmer par curiosité et je le fais depuis 5 ans maintenant. Je suis toujours à la recherche de nouveaux défis et j'ai hâte d'apprendre de nouvelles technologies."
+  },
+  "blog": {
+    "title": "Blog",
+    "content": "J'écris sur les échecs, la programmation et le développement web. J'écris également sur mes expériences et mes réflexions sur divers sujets.",
+    "more": "Voir plus"
   }
 }

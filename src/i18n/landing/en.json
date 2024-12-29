@@ -24,6 +24,11 @@
         "date": "2022 - 2025"
       }
     },
-    "content": "I'm a software engineer with a passion for building existing systems from scratch, and I'm also a chess-programming enthusiast. I just love creating chess programs of all kinds, from simple GUIs to complex engines.\n\n I started programming out of curiosity and I've been doing it for 5 years now. I'm always looking for new challenges and I'm eager to learn new technologies."
+    "content": "I'm a software engineer with a passion for building existing systems from scratch, and I'm also a chess-programming enthusiast. I just love creating chess programs of all kinds, from simple GUIs to complex engines. I started programming out of curiosity and I've been doing it for 5 years now. I'm always looking for new challenges and I'm eager to learn new technologies."
+  },
+  "blog": {
+    "title": "Blog",
+    "content": "I write about chess, programming and web development. I also write about my experiences and thoughts on various topics.",
+    "more": "Read more"
   }
 }
