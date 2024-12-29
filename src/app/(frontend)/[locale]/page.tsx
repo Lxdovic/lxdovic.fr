@@ -5,11 +5,13 @@ import BlurIn from '@/components/ui/blur-in'
 import React from 'react'
 import { HeroRoles } from '@/components/ui/heroRoles/hero-roles'
 import { VerticalGradientBorder } from '@/components/ui/border/vertical-gradient'
-import { Scene } from '@/components/ui/scene/scene'
 import { SlideUp } from '@/components/ui/slideUp/side-up'
 import Link from 'next/link'
 import { SquareArrowOutUpRight } from 'lucide-react'
 import { HorizontalGradientBorder } from '@/components/ui/border/horizontal-gradient'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { KnightScene } from '@/components/ui/scenes/knight-scene'
+import { PawnScene } from '@/components/ui/scenes/pawn-scene'
 
 export default async function LandingPage() {
   const t = await getTranslations()
@@ -17,7 +19,9 @@ export default async function LandingPage() {
   return (
     <main className="flex flex-col overflow-x-hidden">
       <Aurora />
-      <Scene />
+      <div className="absolute top-0 h-screen w-4/5 right-0">
+        <KnightScene />
+      </div>
       <section className="relative h-screen">
         <div className="relative container flex h-full px-0">
           <VerticalGradientBorder className="left-0 h-[300vh] z-10" />
@@ -44,6 +48,7 @@ export default async function LandingPage() {
                 </span>
               </SlideUp>
             </Link>
+
             <Link href="/posts" className="w-full">
               <SlideUp>
                 <span className="flex justify-between">
@@ -57,14 +62,39 @@ export default async function LandingPage() {
       </section>
 
       <section className="relative h-screen bg-background/50 border-y border-foreground/20">
-        <div className="container flex py-40 px-0">
-          <div className="w-96 flex-shrink-0"></div>
-          <div className="relative flex flex-col gap-10 w-full h-max pb-10 px-16">
-            <h2 className="text-6xl text-right font-bold">{t('about.title')}</h2>
+        <div className="container flex pt-40 px-0 h-full">
+          <div className="w-96 flex flex-col flex-shrink-0">
+            <h2 className="px-10 text-2xl mb-10">Experiences</h2>
 
-            <p className="text-xl text-justify text-foreground/80">{t('about.content')}</p>
+            <Card className="rounded-none w-full border-x-0 bg-transparent border-foreground/20">
+              <CardHeader>
+                <CardTitle>{t('about.experiences.0.title')}</CardTitle>
+                <CardDescription>{t('about.experiences.0.content')}</CardDescription>
+              </CardHeader>
+              <CardContent>{t('about.experiences.0.date')}</CardContent>
+            </Card>
 
-            <HorizontalGradientBorder className="w-screen bottom-0" />
+            <Card className="rounded-none w-full border-x-0 border-t-0 bg-transparent border-foreground/20">
+              <CardHeader>
+                <CardTitle>{t('about.experiences.1.title')}</CardTitle>
+                <CardDescription>{t('about.experiences.1.content')}</CardDescription>
+              </CardHeader>
+              <CardContent>{t('about.experiences.1.date')}</CardContent>
+            </Card>
+          </div>
+
+          <div className="relative flex flex-col w-full h-full px-16">
+            <div className="relative w-full h-max flex flex-col gap-10 pb-10">
+              <h2 className="text-6xl text-right font-bold">{t('about.title')}</h2>
+
+              <p className="text-xl text-justify text-foreground/80">{t('about.content')}</p>
+
+              <HorizontalGradientBorder className="w-screen bottom-0" />
+            </div>
+
+            <div className="w-full h-full ">
+              <PawnScene />
+            </div>
           </div>
         </div>
       </section>

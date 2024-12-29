@@ -11,6 +11,19 @@
   },
   "about": {
     "title": "About me",
+    "experiences": {
+      "title": "Experiences",
+      "0": {
+        "title": "(Work-Study) Full-Stack Developer - Holis",
+        "content": "Holis is a company that builds a SaaS software allowing brands and suppliers to measure, improve and communicate their products environmental and social impact.",
+        "date": "2023 - 2025"
+      },
+      "1": {
+        "title": "Student @Epitech",
+        "content": "Epitech is a private higher education institution in computer science. Using project-based learning, the school teaches its students autonomy, work organization, and the ability to adapt to any professional context.",
+        "date": "2022 - 2025"
+      }
+    },
     "content": "I'm a software engineer with a passion for building existing systems from scratch, and I'm also a chess-programming enthusiast. I just love creating chess programs of all kinds, from simple GUIs to complex engines.\n\n I started programming out of curiosity and I've been doing it for 5 years now. I'm always looking for new challenges and I'm eager to learn new technologies."
   }
 }

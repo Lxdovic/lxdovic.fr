@@ -5,18 +5,16 @@ import { Environment } from '@react-three/drei'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'
 
-export const Scene = () => {
+export const KnightScene = () => {
   return (
-    <div className="absolute top-0 h-screen w-4/5 right-0">
-      <Canvas
-        camera={{
-          position: [-0.3, 0.3, -0.3],
-        }}
-      >
-        <Environment preset="dawn" />
-        <Knight />
-      </Canvas>
-    </div>
+    <Canvas
+      camera={{
+        position: [-0.3, 0.3, -0.3],
+      }}
+    >
+      <Environment preset="dawn" />
+      <Knight />
+    </Canvas>
   )
 }
 
