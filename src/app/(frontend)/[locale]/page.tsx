@@ -12,8 +12,8 @@ import { HorizontalGradientBorder } from '@/components/ui/border/horizontal-grad
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import configPromise from '@payload-config'
 import { getPayload, TypedLocale } from 'payload'
-import { CollectionArchive } from '@/components/CollectionArchive'
 import { Button } from '@/components/ui/button'
+import { CollectionArchiveLanding } from '@/components/CollectionArchive/landing'
 
 const KnightScene = lazy(() => import('@/components/ui/scenes/knight-scene'))
 const PawnScene = lazy(() => import('@/components/ui/scenes/pawn-scene'))
@@ -129,7 +129,7 @@ export default async function LandingPage({ params }: Args) {
       </section>
 
       <section className="relative min-h-screen h-max">
-        <div className="relative container flex flex-col gap-10 py-40">
+        <div className="relative container px-0 flex flex-col gap-10 py-40">
           <div className="w-96 absolute top-0 left-0 aspect-square">
             <KingScene />
           </div>
@@ -139,12 +139,16 @@ export default async function LandingPage({ params }: Args) {
             <p className="text-xl text-foreground/80">{t('blog.content')}</p>
           </div>
 
-          <div className="flex gap-10 z-10">
-            <CollectionArchive posts={lastPosts.docs} />
+          <div className="relative flex gap-10 z-10">
+            <HorizontalGradientBorder className="w-screen left-1/3 -translate-x-1/2 z-10 top-0" />
+            <HorizontalGradientBorder className="w-screen left-2/3 -translate-x-1/2 z-10 top-0" />
+            <CollectionArchiveLanding posts={lastPosts.docs} />
+            <HorizontalGradientBorder className="w-screen left-1/3 -translate-x-1/2 z-10 bottom-0" />
+            <HorizontalGradientBorder className="w-screen left-2/3 -translate-x-1/2 z-10 bottom-0" />
           </div>
 
-          <Link href="/posts">
-            <Button variant="outline" className="rounded-none">
+          <Link href="/posts" className="w-max">
+            <Button variant="outline" className="rounded-none bg-transparent hover:bg-accent">
               <p>{t('blog.more')}</p>
             </Button>
           </Link>

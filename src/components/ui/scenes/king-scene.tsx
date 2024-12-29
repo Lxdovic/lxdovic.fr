@@ -19,6 +19,7 @@ const King = () => {
   const groupRef = useRef<THREE.Mesh>(null)
 
   gltf.scene.scale.set(0.22, 0.22, 0.22)
+  gltf.scene.position.set(0, 0.2, 0)
 
   gltf.scene.traverse((child: THREE.Mesh) => {
     child.material = new THREE.MeshStandardMaterial({
