@@ -9,12 +9,13 @@ import { Scene } from '@/components/ui/scene/scene'
 import { SlideUp } from '@/components/ui/slideUp/side-up'
 import Link from 'next/link'
 import { SquareArrowOutUpRight } from 'lucide-react'
+import { HorizontalGradientBorder } from '@/components/ui/border/horizontal-gradient'
 
 export default async function LandingPage() {
   const t = await getTranslations()
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col overflow-x-hidden">
       <Aurora />
       <Scene />
       <section className="relative h-screen">
@@ -38,7 +39,7 @@ export default async function LandingPage() {
             <Link href="https://github.com/lxdovic" className="w-full">
               <SlideUp className="border-r border-foreground/20">
                 <span className="flex justify-between">
-                  Github
+                  {t('hero.github')}
                   <SquareArrowOutUpRight />
                 </span>
               </SlideUp>
@@ -46,7 +47,7 @@ export default async function LandingPage() {
             <Link href="/posts" className="w-full">
               <SlideUp>
                 <span className="flex justify-between">
-                  Blog
+                  {t('hero.blog')}
                   <SquareArrowOutUpRight />
                 </span>
               </SlideUp>
@@ -58,17 +59,19 @@ export default async function LandingPage() {
       <section className="relative h-screen bg-background/50 border-y border-foreground/20">
         <div className="container flex py-40 px-0">
           <div className="w-96 flex-shrink-0"></div>
-          <div className="flex flex-col gap-10 w-full px-6">
-            <h2 className="text-6xl text-right font-bold">About Me</h2>
+          <div className="relative flex flex-col gap-10 w-full h-max pb-10 px-16">
+            <h2 className="text-6xl text-right font-bold">{t('about.title')}</h2>
 
-            <p className=""></p>
+            <p className="text-xl text-justify text-foreground/80">{t('about.content')}</p>
+
+            <HorizontalGradientBorder className="w-screen bottom-0" />
           </div>
         </div>
       </section>
 
       <section className="relative h-screen">
         <div className="container flex flex-col gap-10 py-40">
-          <h2 className="text-6xl text-right font-bold">About Me</h2>
+          <h2 className="text-6xl text-right font-bold">Blog</h2>
         </div>
       </section>
     </main>

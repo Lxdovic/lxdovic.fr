@@ -5,6 +5,12 @@
     "2": "Chess Enthusiast"
   },
   "hero": {
-    "title": "Ludovic Debever"
+    "title": "Ludovic Debever",
+    "blog": "Blog",
+    "github": "Github"
+  },
+  "about": {
+    "title": "About me",
+    "content": "I'm a software engineer with a passion for building existing systems from scratch, and I'm also a chess-programming enthusiast. I just love creating chess programs of all kinds, from simple GUIs to complex engines.\n\n I started programming out of curiosity and I've been doing it for 5 years now. I'm always looking for new challenges and I'm eager to learn new technologies."
   }
 }
