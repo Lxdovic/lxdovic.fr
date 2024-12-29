@@ -18,11 +18,11 @@ export default async function LandingPage() {
         <div className="relative container h-full px-0">
           <VerticalGradientBorder className="left-0" />
           <VerticalGradientBorder className="right-0" />
-          <div className="relative flex justify-center flex-col w-80 h-full">
+          <div className="relative flex justify-center flex-col w-96 h-full">
             <div className="relative h-64 flex flex-col gap-6 border-b border-foreground/20">
               <BlurIn
                 word={t('hero.title')}
-                className="!text-8xl text-left font-bold w-96 text-black dark:text-white"
+                className="!text-8xl text-left font-bold text-black dark:text-white"
               />
             </div>
 

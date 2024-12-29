@@ -1,9 +1,8 @@
 {
   "roles": {
     "0": "Développeur Web",
-    "1": "Ingénieur Logiciel",
-    "2": "Architecte Logiciel",
-    "3": "Passionné de Technologie"
+    "1": "Architecte Logiciel",
+    "2": "Passionné d'échecs"
   },
   "hero": {
     "title": "Ludovic Debever"
