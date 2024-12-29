@@ -1,11 +1,19 @@
 'use client'
 
 import { Environment } from '@react-three/drei'
-import { useFrame, useLoader } from '@react-three/fiber'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'
 
-export default function Knight() {
+export const KnightScene = () => {
+  return (
+    <Canvas camera={{ position: [-0.3, 0.3, -0.3] }}>
+      <Knight />
+    </Canvas>
+  )
+}
+
+const Knight = () => {
   const gltf = useLoader(GLTFLoader, '/chess_knight.glb')
 
   gltf.scene.scale.set(0.08, 0.08, 0.08)

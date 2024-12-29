@@ -10,12 +10,12 @@ import Link from 'next/link'
 import { SquareArrowOutUpRight } from 'lucide-react'
 import { HorizontalGradientBorder } from '@/components/ui/border/horizontal-gradient'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { KnightWrapper } from '@/components/ui/scenes/knight-wrapper'
-import { PawnWrapper } from '@/components/ui/scenes/pawn-wrapper'
 import configPromise from '@payload-config'
 import { getPayload, TypedLocale } from 'payload'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { Button } from '@/components/ui/button'
+import { KnightScene } from '@/components/ui/scenes/knight-scene'
+import { PawnScene } from '@/components/ui/scenes/pawn-scene'
 
 type Args = {
   params: Promise<{
@@ -47,7 +47,7 @@ export default async function LandingPage({ params }: Args) {
     <main className="flex flex-col overflow-x-hidden">
       <Aurora />
       <div className="absolute top-0 h-screen w-4/5 right-0">
-        <KnightWrapper />
+        <KnightScene />
       </div>
       <section className="relative h-screen">
         <div className="relative container flex h-full px-0">
@@ -120,7 +120,7 @@ export default async function LandingPage({ params }: Args) {
             </div>
 
             <div className="w-full h-full ">
-              <PawnWrapper />
+              <PawnScene />
             </div>
           </div>
         </div>
