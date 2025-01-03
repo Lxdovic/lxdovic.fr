@@ -62,7 +62,7 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
   return (
     <div
       key="navbar"
-      className="left-1/2 -translate-x-1/2 fixed top-0 z-50 m-4 flex w-max justify-center self-center rounded-full px-4 h-max border border-white/10 bg-gray-700/35 backdrop-blur-md content-['']"
+      className="left-1/2 -translate-x-1/2 fixed top-0 z-50 m-4 flex w-max justify-center self-center rounded-full px-4 h-max border border-white/10 bg-gray-200/5 backdrop-blur-md content-['']"
     >
       <NavigationMenu>
         <NavigationMenuList>
