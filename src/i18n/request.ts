@@ -4,7 +4,10 @@ import { routing } from './routing'
 import landingEn from './landing/en.json'
 import commonEn from './common/en.json'
 
-type Messages = typeof landingEn & typeof commonEn
+type Messages = {
+  landing: typeof landingEn;
+  common: typeof commonEn;
+}
 
 // WARNING: When modifying this array, ensure that you also modify the 'Messages' type above ^^^
 const NAMESPACES = ['landing', 'common'] as const
@@ -24,13 +27,22 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale
   }
 
+  console.log(Object.assign(
+    {},
+    ...(await Promise.all(
+      NAMESPACES.map(async (namespace) => {
+        return {namespace: (await import(`./${namespace}/${locale}.json`)).default}
+      }),
+    )),
+  ),)
+
   return {
     locale,
     messages: Object.assign(
       {},
       ...(await Promise.all(
         NAMESPACES.map(async (namespace) => {
-          return (await import(`./${namespace}/${locale}.json`)).default
+          return {[namespace]: (await import(`./${namespace}/${locale}.json`)).default}
         }),
       )),
     ),
