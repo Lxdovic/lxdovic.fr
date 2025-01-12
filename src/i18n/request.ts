@@ -27,15 +27,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale
   }
 
-  console.log(Object.assign(
-    {},
-    ...(await Promise.all(
-      NAMESPACES.map(async (namespace) => {
-        return {namespace: (await import(`./${namespace}/${locale}.json`)).default}
-      }),
-    )),
-  ),)
-
   return {
     locale,
     messages: Object.assign(
