@@ -1,10 +1,10 @@
 import type { CollectionConfig } from 'payload'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
-import { Archive } from '@/blocks/ArchiveBlock/config'
-import { CallToAction } from '@/blocks/CallToAction/config'
-import { Content } from '@/blocks/Content/config'
-import { FormBlock } from '@/blocks/Form/config'
-import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { Archive } from '@/blocks/archive/config'
+import { CallToAction } from '@/blocks/callToAction/config'
+import { Content } from '@/blocks/content/config'
+import { FormBlock } from '@/blocks/form/config'
+import { MediaBlock } from '@/blocks/media/config'
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '@/hooks/populatePublishedAt'
@@ -18,7 +18,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { Code } from '@/blocks/Code/config'
+import { Code } from '@/blocks/code/config'
 import { hasOneOfRoles } from '@/access/hasRoles'
 import { Role } from '@/collections/Users'
 

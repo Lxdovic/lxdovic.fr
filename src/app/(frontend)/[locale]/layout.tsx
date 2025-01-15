@@ -5,7 +5,7 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
-import { AdminBar } from '@/components/AdminBar'
+import { AdminBar } from '@/components/adminBar/admin-bar'
 import { Footer } from '@/footer/Component'
 import { Header } from '@/header/Component'
 import { Providers } from '@/providers'

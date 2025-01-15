@@ -8,10 +8,11 @@ import {
   UnderlineFeature,
   AlignFeature,
   ChecklistFeature,
-  BlockquoteFeature, BlocksFeature,
+  BlockquoteFeature,
+  BlocksFeature,
 } from '@payloadcms/richtext-lexical'
-import { CallToAction } from '@/blocks/CallToAction/config'
-import { Banner } from '@/blocks/Banner/config'
+import { CallToAction } from '@/blocks/callToAction/config'
+import { Banner } from '@/blocks/banner/config'
 
 export const defaultLexical: Config['editor'] = lexicalEditor({
   features: ({ defaultFeatures, rootFeatures }) => {

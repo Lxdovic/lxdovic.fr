@@ -10,9 +10,9 @@ import {
 } from '@payloadcms/richtext-lexical'
 
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
-import { Banner } from '@/blocks/Banner/config'
-import { Code } from '@/blocks/Code/config'
-import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { Banner } from '@/blocks/banner/config'
+import { Code } from '@/blocks/code/config'
+import { MediaBlock } from '@/blocks/media/config'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
@@ -25,7 +25,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from '@/fields/slug'
-import { Content } from '@/blocks/Content/config'
+import { Content } from '@/blocks/content/config'
 import { Role } from '../Users'
 import { hasOneOfRoles } from '@/access/hasRoles'
 

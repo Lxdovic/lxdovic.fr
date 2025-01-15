@@ -45,7 +45,7 @@ export default buildConfig({
     },
     components: {
       graphics: {
-        Logo: '/components/Logo/Logo.tsx#Logo',
+        Logo: '/components/logo/Logo.tsx#Logo',
       },
     },
     importMap: {

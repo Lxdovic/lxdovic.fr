@@ -13,7 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import configPromise from '@payload-config'
 import { getPayload, TypedLocale } from 'payload'
 import { Button } from '@/components/ui/button'
-import { CollectionArchiveLanding } from '@/components/CollectionArchive/landing'
+import { CollectionArchiveLanding } from '@/components/collectionArchive/landing'
 
 const KnightScene = lazy(() => import('@/components/ui/scenes/knight-scene'))
 const PawnScene = lazy(() => import('@/components/ui/scenes/pawn-scene'))
