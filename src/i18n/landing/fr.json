@@ -1,0 +1,34 @@
+{
+  "roles": {
+    "0": "Développeur Web",
+    "1": "Architecte Logiciel",
+    "2": "Passionné d'échecs"
+  },
+  "hero": {
+    "title": "Ludovic Debever",
+    "blog": "Blog",
+    "github": "Github"
+  },
+  "about": {
+    "title": "À propos",
+    "experiences": {
+      "title": "Expériences",
+      "0": {
+        "title": "(Alternance) Développeur Full-Stack - Holis",
+        "content": "Holis est une entreprise qui construit un logiciel SaaS permettant aux marques et aux fournisseurs de mesurer, d'améliorer et de communiquer l'impact environnemental et social de leurs produits.",
+        "date": "2023 - 2025"
+      },
+      "1": {
+        "title": "Étudiant @Epitech",
+        "content": "Epitech est un établissement d'enseignement supérieur privé en informatique. En utilisant l'apprentissage par projet, l'école enseigne à ses étudiants l'autonomie, l'organisation du travail et la capacité à s'adapter à tout contexte professionnel.",
+        "date": "2022 - 2025"
+      }
+    },
+    "content": "Je suis un ingénieur logiciel passionné par la construction de systèmes existants à partir de zéro, et je suis également un passionné de programmation d'échecs. J'adore simplement créer des programmes d'échecs de toutes sortes, des interfaces graphiques simples aux moteurs complexes. J'ai commencé à programmer par curiosité et je le fais depuis 5 ans maintenant. Je suis toujours à la recherche de nouveaux défis et j'ai hâte d'apprendre de nouvelles technologies."
+  },
+  "blog": {
+    "title": "Blog",
+    "content": "J'écris sur les échecs, la programmation et le développement web. J'écris également sur mes expériences et mes réflexions sur divers sujets.",
+    "more": "Voir plus"
+  }
+}
