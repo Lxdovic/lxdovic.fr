@@ -9,7 +9,6 @@ import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/footer/Component'
 import { Header } from '@/header/Component'
 import { Providers } from '@/providers'
-import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 
@@ -47,13 +46,17 @@ export default async function RootLayout({ children, params }: Args) {
       suppressHydrationWarning
     >
       <head>
-        <InitTheme />
         <link href="/favicon.png" rel="icon" sizes="32x32" />
         <link href="/favicon.png" rel="icon" type="image/svg+xml" />
         <title>Lxdovic</title>
       </head>
       <body className="no-scrollbar">
-        <Providers>
+        <Providers
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <NextIntlClientProvider messages={messages}>
             <AdminBar
               adminBarProps={{
