@@ -1,7 +1,8 @@
 {
   "hero": {
     "name": "Ludovic Debever",
-    "role": "Ingénieur Logiciel",
-    "description": "Je suis un ingénieur logiciel basé à Paris, France. Je suis passionné par les technologies web et j'aime apprendre de nouvelles choses."
+    "role": "architecte logiciel",
+    "cta": "Projects",
+    "description": "Étudiant architecte logiciel à Epitech. Passionné par tout type de développement logiciel, je suis constamment à la recherche de nouvelles technologies et connaissances."
   }
 }

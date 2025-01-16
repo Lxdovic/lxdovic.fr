@@ -52,7 +52,8 @@ export default {
   		animation: {
   			aurora: 'aurora 60s linear infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'shiny-text': 'shiny-text 8s infinite'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -201,6 +202,14 @@ export default {
   				'90%': {
   					bottom: '50%',
   					right: '25%'
+  				}
+  			},
+  			'shiny-text': {
+  				'0%, 90%, 100%': {
+  					'background-position': 'calc(-100% - var(--shiny-width)) 0'
+  				},
+  				'30%, 60%': {
+  					'background-position': 'calc(100% + var(--shiny-width)) 0'
   				}
   			}
   		}
