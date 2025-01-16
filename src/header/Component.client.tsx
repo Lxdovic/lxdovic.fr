@@ -103,7 +103,7 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
             </Select>
           </NavigationMenuItem>
 
-          <NavigationMenuItem tabIndex={2}>
+          <NavigationMenuItem tabIndex={3}>
             <NavigationMenuTrigger
               onPointerMove={(e) => e.preventDefault()}
               onPointerLeave={(e) => e.preventDefault()}

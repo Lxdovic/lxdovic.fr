@@ -4,5 +4,49 @@
     "role": "software architect",
     "cta": "Projects",
     "description": "I'm a student software architect based in Paris. I'm passionate about any kind of software development and I love learning new things."
+  },
+
+  "projects": {
+    "0": {
+      "name": "chess engine",
+      "tags": {
+        "0": "C#",
+        "1": "Chess",
+        "2": "AI",
+        "3": "Bitboard",
+        "4": "UCI",
+        "5": "Minimax"
+      },
+      "description": "A chess engine written from scratch. It is compatible with the UCI protocol, allowing it to be plugged into most chess GUIs. It uses a bitboard representation and a magic bitboard approach to generate moves."
+    },
+    "1": {
+      "name": "chess challenge",
+      "tags": {
+        "0": "C#",
+        "1": "Chess",
+        "2": "AI",
+        "3": "Minimax"
+      },
+      "description": "My participation to a chess coding competition hosted by sebastian lague. Provided an api for handling the game rules, I had to create a chess bot within 1024 tokens"
+    },
+    "2": {
+      "name": "compiler",
+      "tags": {
+        "0": "C#",
+        "1": "Binary tree",
+        "2": "AST"
+      },
+      "description": "A toy programming language buult from scratch with the help of Immo Landwerth's series on building a compiler. It also contains an interpreter and a REPL"
+    },
+    "3": {
+      "name": "neural network",
+      "tags": {
+        "0": "C#",
+        "1": "AI",
+        "2": "Perceptron",
+        "3": "Computer Vision"
+      },
+      "description": "A neural network able to detect pneumonia on a chest X-ray. It is a Multi-Layer Perceptron built from scratch and is trained on a dataset of ~5000 images"
+    }
   }
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { Environment } from '@react-three/drei'
+import { Edges, Environment } from '@react-three/drei'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'
@@ -11,6 +11,7 @@ export default function KnightScene() {
   return (
     <Canvas camera={{ position: [-0.3, 0.3, -0.3], near: 0.00001, fov: 35 }}>
       <Knight />
+      <Environment preset="dawn" />
     </Canvas>
   )
 }
@@ -37,10 +38,5 @@ const Knight = () => {
     gltf.scene.rotation.z = 0.15
   })
 
-  return (
-    <>
-      <Environment preset="dawn" />
-      <primitive object={gltf.scene} />
-    </>
-  )
+  return <primitive object={gltf.scene} />
 }

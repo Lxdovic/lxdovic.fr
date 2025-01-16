@@ -44,6 +44,7 @@ export default async function RootLayout({ children, params }: Args) {
       className={cn(GeistSans.variable, GeistMono.variable, 'no-scrollbar')}
       lang="en"
       suppressHydrationWarning
+      style={{ scrollBehavior: 'smooth' }}
     >
       <head>
         <link href="/favicon.png" rel="icon" sizes="32x32" />

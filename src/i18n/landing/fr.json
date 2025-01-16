@@ -4,5 +4,24 @@
     "role": "architecte logiciel",
     "cta": "Projects",
     "description": "Étudiant architecte logiciel à Epitech. Passionné par tout type de développement logiciel, je suis constamment à la recherche de nouvelles technologies et connaissances."
+  },
+
+  "projects": {
+    "0": {
+      "name": "Projet 1",
+      "description": "Ceci est une description de projet"
+    },
+    "1": {
+      "name": "Projet 2",
+      "description": "Ceci est une description de projet"
+    },
+    "2": {
+      "name": "Projet 3",
+      "description": "Ceci est une description de projet"
+    },
+    "3": {
+      "name": "Projet 4",
+      "description": "Ceci est une description de projet"
+    }
   }
 }
