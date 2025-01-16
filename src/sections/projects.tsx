@@ -19,9 +19,9 @@ export const Projects = () => {
 
   return (
     <section className="min-h-screen container py-20" id="projects">
-      <BentoGrid className="lg:grid-cols-10">
-        <BentoCard className="relative flex-row p-6 col-span-10 lg:col-span-7 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
-          <div className="w-1/2 flex-shrink-0 z-20 flex flex-col gap-6">
+      <BentoGrid className="grid-cols-10">
+        <BentoCard className="relative flex-row p-6 col-span-10 lg:col-span-6 xl:col-span-7 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
+          <div className="w-full xl:w-1/2 flex-shrink-0 z-20 flex flex-col gap-6">
             <h3 className="text-3xl font-semibold italic font-serif">{t('projects.0.name')}</h3>
 
             <p className="text-justify">{t('projects.0.description')}</p>
@@ -36,13 +36,13 @@ export const Projects = () => {
             </div>
           </div>
 
-          <div className="absolute -bottom-4 z-0 right-0 h-full w-1/2">
+          <div className="absolute hidden xl:flex -bottom-4 z-0 right-0 h-full w-1/2">
             <KingScene />
           </div>
 
           <div className="absolute top-0 left-0 size-full bg-gradient-to-b from-transparent z-10 via-transparent to-card/50" />
         </BentoCard>
-        <BentoCard className="relative p-6 col-span-10 md:col-span-5 lg:col-span-3 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
+        <BentoCard className="relative p-6 col-span-10 md:col-span-5 lg:col-span-4 xl:col-span-3 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
           <div className="z-20 flex flex-col gap-6 h-full">
             <h3 className="text-3xl font-semibold italic font-serif">{t('projects.1.name')}</h3>
 
@@ -58,7 +58,7 @@ export const Projects = () => {
 
           <div className="absolute top-0 left-0 size-full bg-gradient-to-b from-transparent z-10 via-transparent to-card/50" />
         </BentoCard>
-        <BentoCard className="relative p-6 col-span-10 md:col-span-5 lg:col-span-3 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
+        <BentoCard className="relative p-6 col-span-10 md:col-span-5 lg:col-span-4 xl:col-span-3 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
           <div className="z-20 flex flex-col gap-6 h-full">
             <h3 className="text-3xl font-semibold italic font-serif">{t('projects.2.name')}</h3>
 
@@ -73,8 +73,8 @@ export const Projects = () => {
 
           <div className="absolute top-0 left-0 size-full bg-gradient-to-b from-transparent z-10 via-transparent to-card/50" />
         </BentoCard>
-        <BentoCard className="relative flex-row col-span-10 lg:col-span-7 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
-          <div className="w-1/2 flex-shrink-0 p-6 z-20 flex flex-col gap-6">
+        <BentoCard className="relative flex-row col-span-10 lg:col-span-6 xl:col-span-7 bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border hover:scale-[102%]">
+          <div className="w-full xl:w-1/2 flex-shrink-0 p-6 z-20 flex flex-col gap-6">
             <h3 className="text-3xl font-semibold italic font-serif">{t('projects.3.name')}</h3>
 
             <p className="text-justify">{t('projects.3.description')}</p>
@@ -87,7 +87,7 @@ export const Projects = () => {
             </div>
           </div>
 
-          <div className="relative w-1/2 h-full p-10">
+          <div className="relative hidden xl:flex w-1/2 h-full p-10">
             <Safari
               imageSrc={zoidberg.src}
               className="z-0 group-hover:translate-y-6 transition h-max duration-500 translate-y-12 absolute bottom-0 right-0 w-full"
