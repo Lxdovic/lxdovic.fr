@@ -49,6 +49,7 @@ export default async function RootLayout({ children, params }: Args) {
       <head>
         <link href="/favicon.png" rel="icon" sizes="32x32" />
         <link href="/favicon.png" rel="icon" type="image/svg+xml" />
+        <meta name="description" content="Ludovic Debever, Software Engineer" />
         <title>Lxdovic</title>
       </head>
       <body className="no-scrollbar">
@@ -78,8 +79,9 @@ export default async function RootLayout({ children, params }: Args) {
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
   openGraph: mergeOpenGraph(),
+  description: 'Lxdovic.fr',
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: '@lxdovic_',
   },
 }

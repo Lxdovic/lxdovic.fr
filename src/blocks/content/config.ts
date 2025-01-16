@@ -55,7 +55,6 @@ const columnFields: Field[] = [
   link({
     overrides: {
       admin: {
-        // @ts-expect-error - This is a valid override, mapped fields don't resolve to the same type
         condition: (_, { enableLink }) => Boolean(enableLink),
       },
     },

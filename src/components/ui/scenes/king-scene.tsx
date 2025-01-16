@@ -35,7 +35,6 @@ const King = () => {
   useFrame((state) => {
     gltf.scene.rotation.y = Math.sin(state.clock.elapsedTime / 200) * 30
     gltf.scene.rotation.x = -0.3
-    3
   })
 
   return <primitive object={gltf.scene} />

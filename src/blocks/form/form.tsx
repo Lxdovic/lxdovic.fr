@@ -43,7 +43,6 @@ export const FormBlock: React.FC<
   } = props
 
   const formMethods = useForm({
-    // @ts-expect-error - defaultValues is not a valid prop for form
     defaultValues: buildInitialFormState(formFromProps.fields),
   })
   const {
@@ -138,13 +137,11 @@ export const FormBlock: React.FC<
           {isLoading && !hasSubmitted && <p>Loading, please wait...</p>}
           {error && <div>{`${error.status || '500'}: ${error.message || ''}`}</div>}
           {!hasSubmitted && (
-            // @ts-expect-error - formID is not a valid prop for form
             <form id={formID} onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4 last:mb-0">
                 {formFromProps &&
                   formFromProps.fields &&
                   formFromProps.fields?.map((field, index) => {
-                    // @ts-expect-error - Field is not a valid prop for form
                     const Field: React.FC<any> = fields?.[field.blockType]
                     if (Field) {
                       return (

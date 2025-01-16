@@ -112,6 +112,7 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
 
           <NavigationMenuItem tabIndex={3}>
             <NavigationMenuTrigger
+              tabIndex={3}
               onPointerMove={(e) => e.preventDefault()}
               onPointerLeave={(e) => e.preventDefault()}
               className="text-md sm:text-xs uppercase !bg-transparent"
