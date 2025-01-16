@@ -1,6 +1,6 @@
 'use client'
 
-import { Edges, Environment } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'

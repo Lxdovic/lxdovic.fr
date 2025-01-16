@@ -62,25 +62,32 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
   return (
     <div
       key="navbar"
-      className="left-1/2 -translate-x-1/2 fixed top-0 z-50 m-4 flex w-max justify-center self-center rounded-full px-4 h-max border border-white/10 bg-foreground/5 backdrop-blur-md content-['']"
+      className="sm:left-1/2 sm:-translate-x-1/2 fixed top-0 z-50 sm:m-4 flex w-full sm:w-max justify-center self-center rounded-b-2xl sm:rounded-full px-4 h-max sm:border border-0 border-b border-b-white/10 sm:border-white/10 bg-foreground/5 backdrop-blur-md content-['']"
     >
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link tabIndex={1} href="/#home" legacyBehavior passHref>
-              <NavigationMenuLink className="px-4 py-2 text-xs uppercase">Home</NavigationMenuLink>
+              <NavigationMenuLink className="px-4 py-2 text-md sm:text-xs uppercase">
+                Home
+              </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <Link tabIndex={2} href="/posts" legacyBehavior passHref>
-              <NavigationMenuLink className="px-4 py-2 text-xs uppercase">Blog</NavigationMenuLink>
+              <NavigationMenuLink className="px-4 py-2 text-md sm:text-xs uppercase">
+                Blog
+              </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
 
           {data.navItems?.map((navItem, i) => (
             <NavigationMenuItem key={i}>
-              <NavigationMenuLink href={navItem.link.url!} className="px-4 py-2 text-xs uppercase">
+              <NavigationMenuLink
+                href={navItem.link.url!}
+                className="px-4 py-2 text-md sm:text-xs uppercase"
+              >
                 {navItem.link.label}
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -88,7 +95,7 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
 
           <NavigationMenuItem>
             <Select onValueChange={onSelectChange} value={locale}>
-              <SelectTrigger className="ml-auto w-auto bg-transparent text-sm gap-2 pl-0 md:pl-3 border-none">
+              <SelectTrigger className="ml-auto text-md sm:text-xs  w-auto bg-transparent gap-2 pl-0 md:pl-3 border-none">
                 <SelectValue placeholder="Locale" />
               </SelectTrigger>
               <SelectContent>
@@ -107,7 +114,7 @@ const NavItemsBrowser = ({ data }: HeaderClientProps) => {
             <NavigationMenuTrigger
               onPointerMove={(e) => e.preventDefault()}
               onPointerLeave={(e) => e.preventDefault()}
-              className="text-xs uppercase !bg-transparent"
+              className="text-md sm:text-xs uppercase !bg-transparent"
             >
               About
             </NavigationMenuTrigger>
