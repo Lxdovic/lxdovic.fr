@@ -8,20 +8,45 @@
 
   "projects": {
     "0": {
-      "name": "Projet 1",
-      "description": "Ceci est une description de projet"
+      "name": "moteur d'échecs",
+      "tags": {
+        "0": "C#",
+        "1": "Chess",
+        "2": "AI",
+        "3": "Bitboard",
+        "4": "UCI",
+        "5": "Minimax"
+      },
+      "description": "Un moteur d'echecs écrit de zéro. Il est compatible avec le protocole UCI, ce qui lui permet d'être intégré dans la plupart des interfaces graphiques d'échecs. Il utilise une représentation en bitboard et une approche de bitboard magique pour générer les coups."
     },
     "1": {
-      "name": "Projet 2",
-      "description": "Ceci est une description de projet"
+      "name": "chess challenge",
+      "tags": {
+        "0": "C#",
+        "1": "Chess",
+        "2": "AI",
+        "3": "Minimax"
+      },
+      "description": "Ma participation à une compétition de programmation d'échecs organisée par Sebastian Lague. Fourni d'une API pour gérer les règles du jeu, j'ai dû créer un bot d'échecs en 1024 tokens"
     },
     "2": {
-      "name": "Projet 3",
-      "description": "Ceci est une description de projet"
+      "name": "compilateur",
+      "tags": {
+        "0": "C#",
+        "1": "Binary tree",
+        "2": "AST"
+      },
+      "description": "Un langage de programmation construit de zéro avec l'aide de la série d'Immo Landwerth sur la construction d'un compilateur. Il contient également un interpréteur et un REPL"
     },
     "3": {
-      "name": "Projet 4",
-      "description": "Ceci est une description de projet"
+      "name": "réseau de neurones",
+      "tags": {
+        "0": "C#",
+        "1": "AI",
+        "2": "Perceptron",
+        "3": "Computer Vision"
+      },
+      "description": "Un réseau de neurones capable de détecter une pneumonie sur une radiographie thoracique. C'est un Perceptron Multi-Couches construit de zéro et entraîné sur un ensemble de données de ~5000 images"
     }
   }
 }
