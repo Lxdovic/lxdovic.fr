@@ -33,6 +33,7 @@ export const Search = ({ route }: Args) => {
         </Label>
         <Input
           id="search"
+          className="rounded-full"
           onChange={(event) => {
             setValue(event.target.value)
           }}

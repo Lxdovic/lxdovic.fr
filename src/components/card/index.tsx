@@ -32,11 +32,12 @@ export const Card: React.FC<{
   return (
     <article
       className={cn(
-        'border border-foreground/20 overflow-hidden bg-card/50 hover:cursor-pointer flex flex-col',
+        'relative bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border rounded-3xl overflow-hidden hover:cursor-pointer flex flex-col',
         className,
       )}
       ref={card.ref}
     >
+      <div className="absolute top-0 left-0 size-full bg-gradient-to-b from-transparent z-10 via-transparent to-card/50" />
       <div className="relative w-full h-3/5">
         {!metaImage && <div className="">No image</div>}
         {metaImage && typeof metaImage !== 'string' && (
@@ -58,7 +59,9 @@ export const Card: React.FC<{
 
                     return (
                       <Fragment key={index}>
-                        {categoryTitle}
+                        <span className="border-indigo-500/50 text-indigo-500 px-2 py-1 rounded-full border text-sm">
+                          {categoryTitle}
+                        </span>
                         {!isLast && <Fragment>, &nbsp;</Fragment>}
                       </Fragment>
                     )
@@ -72,7 +75,7 @@ export const Card: React.FC<{
         )}
         {titleToUse && (
           <div className="prose">
-            <h3>
+            <h3 className="text-foreground">
               <Link className="not-prose" href={href} ref={link.ref}>
                 {titleToUse}
               </Link>

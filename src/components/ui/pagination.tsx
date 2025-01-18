@@ -40,6 +40,7 @@ const PaginationLink = ({ className, isActive, size = 'icon', ...props }: Pagina
         size,
         variant: isActive ? 'outline' : 'ghost',
       }),
+      'rounded-full',
       className,
     )}
     {...props}
