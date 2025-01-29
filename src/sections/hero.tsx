@@ -12,9 +12,7 @@ export const Hero = () => {
   return (
     <section className="relative h-screen" id="home">
       <div className="flex gap-10 flex-col justify-center size-full container">
-        <div className="w-full opacity-60 -z-20 h-full absolute top-0 left-0">
-          <KnightScene />
-        </div>
+        <KnightScene />
 
         <div className="flex text-5xl sm:text-6xl md:text-7xl lg:text-8xl flex-col self-center w-max">
           <h1 className="flex w-full gap-4">{t('hero.name')}</h1>
@@ -33,10 +31,10 @@ export const Hero = () => {
             </Link>
           </div>
         </div>
-
-        <div className="h-1/4 -z-10 w-full absolute top-0 bg-gradient-to-b from-background via-transparent to-transparent" />
-        <div className="h-1/4 -z-10 w-full absolute bottom-0 bg-gradient-to-b from-transparent via-transparent to-background" />
       </div>
+
+      <div className="h-1/4 -z-10 w-full absolute top-0 bg-gradient-to-b from-background via-transparent to-transparent" />
+      <div className="h-1/4 -z-10 w-full absolute bottom-0 bg-gradient-to-b from-transparent via-transparent to-background" />
     </section>
   )
 }

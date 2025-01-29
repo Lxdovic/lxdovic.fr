@@ -1,12 +1,10 @@
 import { BentoCard, BentoGrid } from '@/components/ui/bento-grid'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/utilities/cn'
-import { HTMLProps, lazy } from 'react'
+import { HTMLProps } from 'react'
 import Safari from '@/components/ui/safari'
 
 import zoidberg from '@/assets/images/zoidberg.png'
-
-const KingScene = lazy(() => import('@/components/ui/scenes/king-scene'))
 
 const Tag = ({ children, className, ...props }: HTMLProps<HTMLSpanElement>) => (
   <span className={cn('px-2 py-1 rounded-full border text-sm', className)} {...props}>
@@ -36,9 +34,7 @@ export const Projects = () => {
             </div>
           </div>
 
-          <div className="absolute hidden xl:flex -bottom-4 z-0 right-0 h-full w-1/2">
-            <KingScene />
-          </div>
+          <div className="absolute hidden xl:flex -bottom-4 z-0 right-0 h-full w-1/2"></div>
 
           <div className="absolute top-0 left-0 size-full bg-gradient-to-b from-transparent z-10 via-transparent to-card/50" />
         </BentoCard>
