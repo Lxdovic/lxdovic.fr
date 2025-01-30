@@ -1,33 +1,46 @@
-import { getCachedGlobal } from '@/utilities/getGlobals'
-import Link from 'next/link'
-import React from 'react'
+'use client'
 
-import type { Footer } from '@/payload-types'
+import React, { useRef } from 'react'
+import gsap from 'gsap'
+import SplitType from 'split-type'
+import { useGSAP } from '@gsap/react'
+import scrollTrigger from 'gsap/ScrollTrigger'
 
-import { CMSLink } from '@/components/link'
-import { ThemeSelector } from '@/components/themeSelector/theme-selector'
+gsap.registerPlugin(useGSAP, scrollTrigger)
 
-export async function Footer() {
-  const footerData: Footer = await getCachedGlobal('footer', 1)()
+export function Footer() {
+  const container = useRef<HTMLDivElement>(null)
 
-  const navItems = footerData?.navItems || []
+  useGSAP(
+    () => {
+      const text = new SplitType('p.letter-pullup', { types: 'chars' })
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            start: 'top bottom',
+            end: 'bottom bottom',
+            markers: true,
+            scrub: 2,
+          },
+        })
+        .from(text.chars, {
+          duration: 1,
+          y: '-100%',
+          opacity: 0,
+          rotation: -15,
+          stagger: 0.2,
+        })
+    },
+    { scope: container },
+  )
 
   return (
-    <footer className="mt-auto border-t border-border bg-card">
-      <div className="container py-8 gap-8 flex flex-col md:flex-row md:justify-between">
-        <Link className="flex items-center" href="/">
-          Lxdovic.fr
-        </Link>
-
-        <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
-          <ThemeSelector />
-          <nav className="flex flex-col md:flex-row gap-4">
-            {navItems.map(({ link }, i) => {
-              return <CMSLink className="text-white" key={i} {...link} />
-            })}
-          </nav>
-        </div>
-      </div>
+    <footer ref={container} className="h-screen">
+      <p className="text-foreground/20 letter-pullup w-full text-[23.5vw] uppercase tracking-tighter font-bold leading-[18vw]">
+        test
+      </p>
     </footer>
   )
 }
