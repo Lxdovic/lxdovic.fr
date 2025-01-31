@@ -6,17 +6,11 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'
 import { useTheme } from 'next-themes'
 import { useEffect, useRef, useState } from 'react'
-import {
-  EffectComposer,
-  BrightnessContrast,
-  ChromaticAberration,
-} from '@react-three/postprocessing'
-import { BlendFunction } from 'postprocessing'
 import gsap from 'gsap'
 import scrollTrigger from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 
-gsap.registerPlugin(useGSAP, scrollTrigger) // register any plugins, including the useGSAP hook
+gsap.registerPlugin(useGSAP, scrollTrigger)
 
 export default function KnightScene() {
   const container = useRef<HTMLDivElement>(null)
@@ -32,6 +26,7 @@ export default function KnightScene() {
             end: '+=500',
             scrub: 2,
           },
+          defaults: { ease: 'power1.out' },
           onUpdate: function () {
             setProgress(this.progress())
           },
@@ -45,7 +40,6 @@ export default function KnightScene() {
     <div ref={container} className="w-full opacity-60 absolute -z-20 h-full top-0 left-0">
       <Canvas camera={{ position: [-0.55, 0, 0], fov: 35 }}>
         <Knight progress={progress} />
-        <Stats />
         <Environment preset="dawn" />
       </Canvas>
     </div>
@@ -98,6 +92,9 @@ const Knight = ({ progress }: KnightProps) => {
     light.current.position.z = ease(light.current.position.z, cursor.x / 5, 0.1)
 
     state.camera.position.x = -(0.55 - progress / 7)
+    // state.camera.position.x = -(1 - progress - (1 - 0.55))
+    // state.camera.position.y = -progress
+    // state.camera.lookAt(0, 0, 0)
   })
 
   useEffect(() => {
@@ -158,11 +155,6 @@ const Knight = ({ progress }: KnightProps) => {
 
   return (
     <>
-      <EffectComposer>
-        <BrightnessContrast brightness={0} contrast={0.1} />
-        <ChromaticAberration blendFunction={BlendFunction.ADD} offset={[0.0015, 0.0015]} />
-      </EffectComposer>
-
       <primitive object={knight.scene} />
       <primitive object={king.scene} />
       <primitive object={pawn.scene} />
