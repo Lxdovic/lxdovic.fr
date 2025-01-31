@@ -21,7 +21,6 @@ export function Footer() {
             trigger: container.current,
             start: 'top bottom',
             end: 'bottom bottom',
-            markers: true,
             scrub: 2,
           },
         })
@@ -37,9 +36,9 @@ export function Footer() {
   )
 
   return (
-    <footer ref={container} className="h-screen">
+    <footer ref={container} className="h-screen w-screen overflow-hidden">
       <p className="text-foreground/20 letter-pullup w-full text-[23.5vw] uppercase tracking-tighter font-bold leading-[18vw]">
-        test
+        Ludovic
       </p>
     </footer>
   )

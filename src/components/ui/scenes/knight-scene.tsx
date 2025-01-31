@@ -1,6 +1,6 @@
 'use client'
 
-import { Environment, Stats } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three-stdlib'
@@ -31,13 +31,15 @@ export default function KnightScene() {
             setProgress(this.progress())
           },
         })
-        .to(container.current, {})
+        .to(container.current, {
+          opacity: 0,
+        })
     },
     { scope: container },
   )
 
   return (
-    <div ref={container} className="w-full opacity-60 absolute -z-20 h-full top-0 left-0">
+    <div ref={container} className="w-full absolute -z-20 h-full top-0 left-0">
       <Canvas camera={{ position: [-0.55, 0, 0], fov: 35 }}>
         <Knight progress={progress} />
         <Environment preset="dawn" />
@@ -91,10 +93,9 @@ const Knight = ({ progress }: KnightProps) => {
     light.current.position.y = ease(light.current.position.y, cursor.y / 20, 0.1)
     light.current.position.z = ease(light.current.position.z, cursor.x / 5, 0.1)
 
-    state.camera.position.x = -(0.55 - progress / 7)
-    // state.camera.position.x = -(1 - progress - (1 - 0.55))
-    // state.camera.position.y = -progress
-    // state.camera.lookAt(0, 0, 0)
+    state.camera.position.x = -(1 - progress) * 0.55
+    state.camera.position.y = -progress / 2
+    state.camera.lookAt(0, 0, 0)
   })
 
   useEffect(() => {
