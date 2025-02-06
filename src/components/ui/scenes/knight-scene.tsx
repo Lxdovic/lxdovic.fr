@@ -93,8 +93,8 @@ const Knight = ({ progress }: KnightProps) => {
     light.current.position.y = ease(light.current.position.y, cursor.y / 20, 0.1)
     light.current.position.z = ease(light.current.position.z, cursor.x / 5, 0.1)
 
-    state.camera.position.x = -(1 - progress) * 0.55
-    state.camera.position.y = -progress / 2
+    state.camera.position.x = -0.55 + progress * 0.2
+    state.camera.position.y = -progress / 4
     state.camera.lookAt(0, 0, 0)
   })
 
