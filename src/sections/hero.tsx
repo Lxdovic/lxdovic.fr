@@ -14,12 +14,12 @@ export const Hero = () => {
       <div className="flex gap-10 flex-col justify-center size-full container">
         <KnightScene />
 
-        <div className="mix-blend-difference flex text-6xl sm:text-7xl md:text-8xl lg:text-9xl flex-col self-center w-max">
+        <div className="mix-blend-difference flex text-4xl sm:text-7xl md:text-8xl lg:text-9xl flex-col self-center w-max">
           <h1 className="flex w-full gap-4">{t('hero.name')}</h1>
           <h2 className="italic w-full tracking-tighter font-serif">{t('hero.role')}</h2>
         </div>
 
-        <div className="w-[465px] sm:w-[555px] text-justify lg:text-left md:w-[740px] lg:w-[985px] flex flex-col gap-10 self-center">
+        <div className="w-full sm:w-[555px] text-justify lg:text-left md:w-[740px] lg:w-[985px] flex flex-col gap-10 self-center">
           <p className="mix-blend-difference text-xl w-full leading-relaxed tracking-wide">
             {t('hero.description')}
           </p>
