@@ -6,6 +6,14 @@
     "description": "I'm a student software architect based in Paris. I'm passionate about any kind of software development and I love learning new things."
   },
 
+  "about": {
+    "titles": {
+      "imagine": "imagine",
+      "create": "create",
+      "learn": "learn"
+    }
+  },
+
   "projects": {
     "0": {
       "name": "chess engine",

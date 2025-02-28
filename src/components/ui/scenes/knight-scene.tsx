@@ -13,46 +13,17 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(useGSAP, scrollTrigger)
 
 export default function KnightScene() {
-  const container = useRef<HTMLDivElement>(null)
-  const [progress, setProgress] = useState(0)
-
-  useGSAP(
-    () => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: container.current,
-            start: 'top top',
-            end: '+=500',
-            scrub: 2,
-          },
-          defaults: { ease: 'power1.out' },
-          onUpdate: function () {
-            setProgress(this.progress())
-          },
-        })
-        .to(container.current, {
-          opacity: 0,
-        })
-    },
-    { scope: container },
-  )
-
   return (
-    <div ref={container} className="w-full absolute -z-20 h-full top-0 left-0">
+    <div className="w-full absolute -z-20 h-full top-0 left-0">
       <Canvas camera={{ position: [-0.55, 0, 0], fov: 35 }}>
-        <Knight progress={progress} />
+        <Knight />
         <Environment preset="dawn" />
       </Canvas>
     </div>
   )
 }
 
-type KnightProps = {
-  progress: number
-}
-
-const Knight = ({ progress }: KnightProps) => {
+const Knight = () => {
   const knight = useLoader(GLTFLoader, '/chess_knight.glb')
   const pawn = useLoader(GLTFLoader, '/chess_pawn.glb')
   const king = useLoader(GLTFLoader, '/chess_king.glb')
@@ -93,9 +64,9 @@ const Knight = ({ progress }: KnightProps) => {
     light.current.position.y = ease(light.current.position.y, cursor.y / 20, 0.1)
     light.current.position.z = ease(light.current.position.z, cursor.x / 5, 0.1)
 
-    state.camera.position.x = -0.55 + progress * 0.2
-    state.camera.position.y = -progress / 4
-    state.camera.lookAt(0, 0, 0)
+    state.camera.position.y = ease(state.camera.position.y, -cursor.y / 30, 0.1)
+    state.camera.position.z = ease(state.camera.position.z, cursor.x / 30, 0.1)
+    state.camera.lookAt(0, state.camera.position.y / 2, state.camera.position.z / 2)
   })
 
   useEffect(() => {

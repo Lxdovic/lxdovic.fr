@@ -32,21 +32,21 @@ export const Card: React.FC<{
   return (
     <article
       className={cn(
-        'relative bg-foreground/5 hover:bg-foreground/[7%] transition duration-500 border rounded-3xl overflow-hidden hover:cursor-pointer flex flex-col',
+        'relative bg-foreground/5 hover:bg-foreground/[8%] transition duration-500 border rounded-3xl overflow-hidden hover:cursor-pointer flex flex-col',
         className,
       )}
       ref={card.ref}
     >
-      <div className="absolute top-0 left-0 size-full bg-gradient-to-b from-transparent z-10 via-transparent to-card/50" />
       <div className="relative w-full h-3/5">
         {!metaImage && <div className="">No image</div>}
         {metaImage && typeof metaImage !== 'string' && (
           <Media resource={metaImage} className="h-full" imgClassName="h-full object-cover" />
         )}
       </div>
-      <div className="p-4 flex-1">
+      <div className="p-4 relative flex-1">
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-border to-background [mask-image:url(/noise.svg)]" />
         {showCategories && hasCategories && (
-          <div className="uppercase text-sm mb-4">
+          <div className="uppercase text-sm mb-4 relative z-10">
             {showCategories && hasCategories && (
               <div>
                 {categories?.map((category, index) => {
@@ -74,7 +74,7 @@ export const Card: React.FC<{
           </div>
         )}
         {titleToUse && (
-          <div className="prose">
+          <div className="prose relative z-10">
             <h3 className="text-foreground">
               <Link className="not-prose" href={href} ref={link.ref}>
                 {titleToUse}
@@ -82,7 +82,9 @@ export const Card: React.FC<{
             </h3>
           </div>
         )}
-        {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}
+        {description && (
+          <div className="mt-2 relative z-10">{description && <p>{sanitizedDescription}</p>}</div>
+        )}
       </div>
     </article>
   )

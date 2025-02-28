@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import AnimatedShinyText from '@/components/ui/animated-shiny-text'
 import { ArrowRightIcon } from 'lucide-react'
 import Link from 'next/link'
+import { AuroraBackground } from '@/components/ui/aurora-bg'
 
 const KnightScene = lazy(() => import('@/components/ui/scenes/knight-scene'))
 
@@ -11,6 +12,7 @@ export const Hero = () => {
 
   return (
     <section className="relative h-screen" id="home">
+      <AuroraBackground />
       <div className="flex gap-10 flex-col justify-center size-full container">
         <KnightScene />
 

@@ -6,6 +6,14 @@
     "description": "Étudiant architecte logiciel à Epitech. Passionné par tout type de développement logiciel, je suis constamment à la recherche de nouvelles technologies et connaissances."
   },
 
+  "about": {
+    "titles": {
+      "imagine": "imaginer",
+      "create": "créer",
+      "learn": "apprendre"
+    }
+  },
+
   "projects": {
     "0": {
       "name": "moteur d'échecs",
